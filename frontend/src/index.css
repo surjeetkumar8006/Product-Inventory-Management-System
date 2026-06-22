@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Default (Dark Mode) Variables */
+  --bg-color: #0f172a;
+  --bg-gradient-1: hsla(253, 26%, 12%, 1);
+  --bg-gradient-2: hsla(225, 39%, 20%, 1);
+  --bg-gradient-3: hsla(339, 49%, 15%, 1);
+  
+  --surface-color: rgba(30, 41, 59, 0.7);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  
+  --accent-color: #6366f1;
+  --accent-hover: #4f46e5;
+  --danger-color: #ef4444;
+  --danger-hover: #dc2626;
+  --success-color: #10b981;
+  
+  --border-color: rgba(255, 255, 255, 0.08);
+  --input-bg: rgba(15, 23, 42, 0.5);
+  --input-focus-bg: rgba(15, 23, 42, 0.8);
+  
+  --glass-bg: rgba(20, 27, 45, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  --nav-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='light'] {
+  --bg-color: #f8fafc;
+  --bg-gradient-1: hsla(210, 50%, 95%, 1);
+  --bg-gradient-2: hsla(240, 50%, 95%, 1);
+  --bg-gradient-3: hsla(280, 50%, 95%, 1);
+  
+  --surface-color: rgba(255, 255, 255, 0.85);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  
+  --accent-color: #4f46e5;
+  --accent-hover: #4338ca;
+  --danger-color: #ef4444;
+  --danger-hover: #dc2626;
+  --success-color: #059669;
+  
+  --border-color: rgba(15, 23, 42, 0.12);
+  --input-bg: rgba(15, 23, 42, 0.03);
+  --input-focus-bg: #ffffff;
+  
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+  --nav-shadow: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 10% 20%, var(--bg-gradient-1) 0%, transparent 50%), 
+    radial-gradient(circle at 80% 30%, var(--bg-gradient-2) 0%, transparent 50%), 
+    radial-gradient(circle at 50% 80%, var(--bg-gradient-3) 0%, transparent 50%);
+  background-attachment: fixed;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-panel:hover {
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Forms & Inputs */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  background-color: var(--input-focus-bg);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+}
+
+.btn-icon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+  background: var(--surface-color);
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+  box-shadow: 0 4px 12px 0 rgba(99, 102, 241, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.28);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--border-color);
+  transform: translateY(-2px);
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.page-container {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Utility */
+.text-center { text-align: center; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-4 { gap: 1rem; }
+
+@media (max-width: 768px) {
+  .login-wrapper {
+    flex-direction: column !important;
+  }
+  .login-brand {
+    padding: 2rem !important;
+    text-align: center;
+  }
+  .login-brand h1 {
+    font-size: 2rem !important;
+  }
+  .responsive-modal-form {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .responsive-modal-form > div {
+    grid-column: span 1 !important;
+  }
+}
+
